@@ -18,8 +18,7 @@ This role uses a [swanctl.conf-style syntax](https://wiki.strongswan.org/project
 
 ##### StrongSwan (server|clients) settings:
 
-- `strongswan_swanctl_config_dir`: [optional, default: `/etc/strongswan/swanctl`]: Directory which contains StrongSwan swanctl.conf
-- `strongswan_swanctl_config_file`: [optional, default: `{{ strongswan_swanctl_config_dir }}/swanctl.conf`]: The name of StrongSwan swanctl configuration file
+- `strongswan_swanctl_config_file`: [optional, default: `{{ strongswan_swanctl_root_dir }}/conf.d/swanctl.conf`]: The name of StrongSwan swanctl configuration file
 - `strongswan_letsencrypt_enable`: [optional, default: `true`]: Prepare StrongSwan server certificate with Let'sEncrypt
 - `strongswan_firewalld_enable`: [optional, default `true`]: Set all needed firewall rules for StrongSwan server
 - `strongswan_client`: [optional, default `false`]: Install and configure StrongSwan on clients

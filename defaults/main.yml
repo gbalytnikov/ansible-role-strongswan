@@ -1,6 +1,6 @@
 ---
 strongswan_install_from_source: false
-strongswan_from_source_version: 5.9.2
+strongswan_from_source_version: 5.9.5
 
 strongswan_letsencrypt_enable: true
 strongswan_generate_pki: false
@@ -11,21 +11,14 @@ strongswan_download_cert: false
 strongswan_upload_cert: false
 
 strongswan_swanctl_root_dir: "/etc/swanctl"
-strongswan_swanctl_config_dir: "/etc/swanctl/conf.d"
-strongswan_swanctl_svc: "strongswan.service"
+strongswan_swanctl_svc: "strongswan-starter.service"
 strongswan_conf_file: "/etc/strongswan.d/01-strongswan.conf"
-strongswan_swanctl_config_file: "{{ strongswan_swanctl_config_dir }}/swanctl.conf"
+strongswan_swanctl_config_file: "{{ strongswan_swanctl_root_dir }}/conf.d/swanctl.conf"
 
 strongswan_settings:
   swanctl:
     load: pem pkcs1 x509 revocation constraints pubkey openssl random
   charon:
-    load_modular: "yes"
-    fragment_size: 1400
-    user: "strongswan"
-    group: "strongswan"
-    dns1: 1.1.1.1
-    dns2: 9.9.9.9
     start-scripts:
       creds: /usr/sbin/swanctl --load-creds
       conns: /usr/sbin/swanctl --load-conns

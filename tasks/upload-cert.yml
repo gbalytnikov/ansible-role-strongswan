@@ -6,6 +6,6 @@
     mode: 0755
   with_items:
     - src: "{{ playbook_dir }}/certs/ca-cert.pem"
-      dest: "{{ strongswan_swanctl_config_dir }}/x509ca/ca-cert.pem"
+      dest: "{{ strongswan_swanctl_root_dir }}/x509ca/ca-cert.pem"
     - src: "{{ playbook_dir }}/certs/cert.pem"
-      dest: "{{ strongswan_swanctl_config_dir }}/x509/cert.pem"
+      dest: "{{ strongswan_swanctl_root_dir }}/x509/cert.pem"

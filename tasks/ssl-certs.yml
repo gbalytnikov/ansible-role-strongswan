@@ -26,21 +26,18 @@
         dest: "{{ item.dest }}"
         state: link
       with_items:
-        - src:
-            {
-              "{{ letsencrypt_domain_dir }}/chain.pem",
-              dest: "{{ strongswan_swanctl_config_dir }}/x509ca/ca-cert.pem",
-            }
-        - src:
-            {
-              "{{ letsencrypt_domain_dir }}/fullchain.pem",
-              dest: "{{ strongswan_swanctl_config_dir }}/x509/cert.pem",
-            }
-        - src:
-            {
-              "{{ letsencrypt_domain_dir }}/privkey.pem",
-              dest: "{{ strongswan_swanctl_config_dir }}/private/server-key.pem",
-            }
+        - {
+            src: "{{ letsencrypt_domain_dir }}/chain.pem",
+            dest: "{{ strongswan_swanctl_root_dir }}/x509ca/ca-cert.pem",
+          }
+        - {
+            src: "{{ letsencrypt_domain_dir }}/fullchain.pem",
+            dest: "{{ strongswan_swanctl_root_dir }}/x509/cert.pem",
+          }
+        - {
+            src: "{{ letsencrypt_domain_dir }}/privkey.pem",
+            dest: "{{ strongswan_swanctl_root_dir }}/private/server-key.pem",
+          }
       when: letsencrypt_cert.stat.exists
 
     - name: fail due to missing letsencrypt certificate
